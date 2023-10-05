@@ -57,7 +57,7 @@ echo "${Orange}Searching Subdomains...${clear}"
 subfinder -d $domain_name -o /home/$USER/.penmonk/$dir_name/$domain_name.subdomains.txt >/dev/null 2>&1
 
 echo "${Orange}Searching Subdomain Takeovers...${clear}"
-subzy --targets /home/$USER/.penmonk/$dir_name/$domain_name.subdomains.txt | tee /home/$USER/.penmonk/$dir_name/$domain_name.subzy.txt>/dev/null 2>&1
+subzy run --targets /home/$USER/.penmonk/$dir_name/$domain_name.subdomains.txt | tee /home/$USER/.penmonk/$dir_name/$domain_name.subzy.txt>/dev/null 2>&1
 
 echo "${Orange}Gathering Accessible Subdomains...${clear}"
 cat /home/$USER/.penmonk/$dir_name/$domain_name.subdomains.txt| httpx -silent| tee /home/$USER/.penmonk/$dir_name/$domain_name.httpx.txt > /dev/null 2>&1
